@@ -1,4 +1,4 @@
-import type { SimulationRecord } from '@/data/simulation';
+import type { ConversationMessage, SimulationRecord } from '@/data/simulation';
 import { parseCurrency } from '@/utils/currency';
 import { calcMonthlySavings } from '@/utils/simulation';
 
@@ -57,4 +57,31 @@ Regras:
   - "viable": saldo após reserva para a meta é maior ou igual a 0
   - "needs_adjustment": saldo negativo de até 20% do valor da economia mensal necessária
   - "unfeasible": saldo negativo superior a 20% do valor da economia mensal necessária`;
+}
+
+export function buildQuestionPrompt(
+	simulation: SimulationRecord,
+	question: string,
+	conversation: ConversationMessage[],
+) {
+	const history = conversation
+		.map((message) => `${message.role === 'user' ? 'Usuário' : 'Educador'}: ${message.content}`)
+		.join('\n');
+
+	return `Você é um educador financeiro brasileiro, claro, didático e responsável. Responda à pergunta do usuário usando os dados da simulação abaixo. Seja objetivo, prático e não invente dados. Não use markdown, listas com símbolos ou JSON. Responda em português do Brasil.
+
+Dados da simulação:
+- Renda mensal: ${simulation.income}
+- Custos fixos: ${simulation.expenses}
+- Dívidas e parcelas: ${simulation.debts}
+- Meta: ${simulation.goalName}
+- Valor da meta: ${simulation.goalAmount}
+- Prazo: ${simulation.goalDeadline} meses
+
+Histórico da conversa:
+${history || 'Nenhuma pergunta anterior.'}
+
+Pergunta atual: ${question}
+
+Responda somente com a resposta que será exibida ao usuário.`;
 }

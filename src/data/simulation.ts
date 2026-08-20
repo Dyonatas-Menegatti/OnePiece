@@ -1,7 +1,7 @@
 import { CalendarClock, CreditCard, Goal, Landmark, PiggyBank, Wallet } from 'lucide-react';
 
-import type { FormStepProps } from '../components/features/Simulation/FormStep'
 import type { InsightData } from '@/services/aiServices';
+import type { FormStepProps } from '../components/features/Simulation/FormStep';
 
 export const simulationFormSteps = [
 	{
@@ -75,8 +75,19 @@ export const simulationFormSteps = [
 			emojiIcon: '✨',
 		},
 	},
-] satisfies FormStepProps[]
+] satisfies FormStepProps[];
 
-export type SimulationFormData = Record< (typeof simulationFormSteps)[number]['id'],string>
+export type SimulationFormData = Record<(typeof simulationFormSteps)[number]['id'], string>;
 
-export type SimulationRecord = SimulationFormData & { id: string; insight?: InsightData }
+export interface ConversationMessage {
+	role: 'user' | 'assistant';
+	content: string;
+	timestamp: string;
+}
+
+export type SimulationRecord = SimulationFormData & {
+	id: string;
+	createdAt?: string;
+	insight?: InsightData;
+	conversation?: ConversationMessage[];
+};

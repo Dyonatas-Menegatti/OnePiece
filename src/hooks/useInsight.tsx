@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { buildAIPrompt } from '@/data/aiPrompt';
+import { buildAIPrompt, buildQuestionPrompt } from '@/data/aiPrompt';
+import type { ConversationMessage, SimulationRecord } from '@/data/simulation';
 import { useSimulationStorage } from '@/hooks/useSimulationStorage';
-import { getInsight, type InsightData } from '@/services/aiServices';
-import type { SimulationRecord } from '@/data/simulation';
+import { askQuestion as askAIQuestion, getInsight, type InsightData } from '@/services/aiServices';
 
 export const useInsight = (id: string) => {
 	const isRequestPending = useRef(false);
@@ -19,6 +19,11 @@ export const useInsight = (id: string) => {
 	});
 	const [isLoading, setIsLoading] = useState(false);
 	const [error, setError] = useState<string | null>(null);
+	const [conversation, setConversation] = useState<ConversationMessage[]>(
+		() => getFormData(id)?.conversation ?? [],
+	);
+	const [isAsking, setIsAsking] = useState(false);
+	const [questionError, setQuestionError] = useState<string | null>(null);
 
 	// useCallback é necessário pois essa função entra no array de dependências do useEffect
 	const fetchInsight = useCallback(
@@ -62,5 +67,41 @@ export const useInsight = (id: string) => {
 		fetchInsight(id);
 	}, [id, insight, isLoading, error, fetchInsight]);
 
-	return { insight, isLoading, error, fetchInsight };
+	const askQuestion = useCallback(
+		async (question: string) => {
+			const simulation = getFormData(id);
+			if (!simulation || !question.trim() || isAsking) return;
+
+			setIsAsking(true);
+			setQuestionError(null);
+			try {
+				const answer = await askAIQuestion(
+					buildQuestionPrompt(simulation, question.trim(), conversation),
+				);
+				const messages: ConversationMessage[] = [
+					...conversation,
+					{ role: 'user', content: question.trim(), timestamp: new Date().toISOString() },
+					{ role: 'assistant', content: answer, timestamp: new Date().toISOString() },
+				];
+				setConversation(messages);
+				updateSimulation(id, { ...simulation, conversation: messages } as SimulationRecord);
+			} catch {
+				setQuestionError('Não foi possível responder agora. Tente novamente.');
+			} finally {
+				setIsAsking(false);
+			}
+		},
+		[conversation, getFormData, id, isAsking, updateSimulation],
+	);
+
+	return {
+		insight,
+		isLoading,
+		error,
+		fetchInsight,
+		conversation,
+		askQuestion,
+		isAsking,
+		questionError,
+	};
 };

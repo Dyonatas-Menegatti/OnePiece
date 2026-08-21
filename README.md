@@ -1,50 +1,72 @@
-# Grand Line Finance
+# ⚓ Grand Line Finance
 
-Aplicacao web para planejamento financeiro pessoal. O Grand Line Finance transforma uma meta em uma rota de economia: a pessoa informa sua renda, despesas, dividas, objetivo e prazo para visualizar quanto precisa reservar por mes.
+<div align="center">
 
-## Indice
+**Trace sua rota financeira e navegue rumo aos seus objetivos.** 🗺️ 💰
 
-- [Status](#status)
-- [Funcionalidades](#funcionalidades)
-- [Demonstracao Visual](#demonstracao-visual)
-- [Acesso ao Projeto](#acesso-ao-projeto)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Como Executar](#como-executar)
-- [Scripts Disponiveis](#scripts-disponiveis)
+Uma experiencia web leve e intuitiva para transformar sonhos em planos praticos de economia.
 
-## Status
+[![Status](https://img.shields.io/badge/status-concluido-16a34a?style=for-the-badge)](https://github.com/Dyonatas-Menegatti/OnePiece)
+[![React](https://img.shields.io/badge/React-19.2.8-61dafb?style=for-the-badge&logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6.0.2-3178c6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-8.2.0-646cff?style=for-the-badge&logo=vite&logoColor=white)](https://vite.dev/)
 
-Concluido para demonstracao e testes locais. A aplicacao ja possui fluxo de simulacao, armazenamento no navegador, historico e resultados com insights financeiros por IA.
+[🚀 Acessar repositorio](https://github.com/Dyonatas-Menegatti/OnePiece) · [⬇️ Baixar projeto](https://github.com/Dyonatas-Menegatti/OnePiece/archive/refs/heads/main.zip)
 
-## Funcionalidades
+</div>
 
-- Formulario guiado em seis etapas para registrar uma simulacao.
-- Calculo da reserva mensal necessaria para atingir o objetivo.
-- Tela de resultados com resumo da meta, prazo, renda, custos e parcelas.
-- Insights e perguntas ao navegador financeiro por meio da API Gemini.
-- Historico de simulacoes salvo no `localStorage`, com consulta e exclusao.
-- Navegacao entre nova simulacao, resultado e diario de bordo.
-- Alternancia entre tema claro e escuro.
-- Layout responsivo para desktop e dispositivos moveis.
+> **A ideia:** reunir os seus berries, escolher um destino e deixar o Log Pose indicar o caminho ate o seu tesouro. ✨
 
-## Demonstracao Visual
+## 📚 Indice
 
-### Tela inicial
+- [Status](#-status)
+- [Sobre o projeto](#-sobre-o-projeto)
+- [Funcionalidades](#-funcionalidades)
+- [Demonstracao visual](#-demonstracao-visual)
+- [Acesso ao projeto](#-acesso-ao-projeto)
+- [Tecnologias utilizadas](#-tecnologias-utilizadas)
+- [Como executar](#-como-executar)
+- [Scripts disponiveis](#-scripts-disponiveis)
 
-![Tela inicial do Grand Line Finance](public/screenshots/tela-inicial.png)
+## ✅ Status
 
-### Historico de simulacoes
+**Concluido para demonstracao e testes locais.** O fluxo principal esta pronto para ser explorado: simulacao, calculo, historico e resultados com insights financeiros por IA.
 
-![Historico de simulacoes](public/screenshots/historico-vazio.png)
+## 🌊 Sobre o projeto
 
-### Resultado de uma simulacao
+O Grand Line Finance foi criado para tornar o planejamento financeiro mais simples e visual. Em poucos passos, voce registra sua realidade atual, define uma meta e recebe uma estimativa objetiva da reserva mensal necessaria.
+
+### 🧭 Como funciona
+
+`1. Informe sua renda` → `2. Registre custos e dividas` → `3. Defina seu tesouro` → `4. Analise sua rota`
+
+## 🧩 Funcionalidades
+
+- 📝 Formulario guiado em seis etapas para registrar uma simulacao.
+- 🧮 Calculo da reserva mensal necessaria para atingir o objetivo.
+- 🗺️ Tela de resultados com resumo da meta, prazo, renda, custos e parcelas.
+- 🤖 Insights e perguntas ao navegador financeiro por meio da API Gemini.
+- 📖 Historico salvo no `localStorage`, com consulta e exclusao.
+- 🌓 Alternancia entre tema claro e escuro.
+- 📱 Layout responsivo para desktop e dispositivos moveis.
+
+## 🖼️ Demonstracao Visual
+
+Uma pequena amostra da jornada dentro do projeto:
+
+| 🚢 Trace sua rota                                                          | 📖 Consulte seu historico                                          |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| ![Tela inicial do Grand Line Finance](public/screenshots/tela-inicial.png) | ![Historico de simulacoes](public/screenshots/historico-vazio.png) |
+
+### 💎 Resultado de uma simulacao
 
 ![Resultado de uma simulacao](public/screenshots/resultado-simulacao.png)
 
-## Acesso ao Projeto
+## 🚀 Acesso ao Projeto
 
-- **Repositorio:** [github.com/Dyonatas-Menegatti/OnePiece](https://github.com/Dyonatas-Menegatti/OnePiece)
-- **Download:** [baixar o projeto pelo GitHub](https://github.com/Dyonatas-Menegatti/OnePiece/archive/refs/heads/main.zip)
+**Repositorio:** [github.com/Dyonatas-Menegatti/OnePiece](https://github.com/Dyonatas-Menegatti/OnePiece)
+
+**Download direto:** [baixar o projeto pelo GitHub](https://github.com/Dyonatas-Menegatti/OnePiece/archive/refs/heads/main.zip)
 
 Para baixar via Git:
 
@@ -53,7 +75,7 @@ git clone https://github.com/Dyonatas-Menegatti/OnePiece.git
 cd OnePiece
 ```
 
-## Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
 | Tecnologia ou biblioteca | Versao declarada |
 | ------------------------ | ---------------- |
@@ -70,14 +92,14 @@ cd OnePiece
 
 As demais versoes de desenvolvimento estao disponiveis no arquivo [package.json](package.json).
 
-## Como Executar
+## 💻 Como Executar
 
-### Pre-requisitos
+### 📋 Pre-requisitos
 
 - Node.js 20 ou superior.
 - npm 10 ou superior.
 
-### Instalacao
+### ⚡ Comecando rapidamente
 
 Depois de clonar ou baixar o projeto, instale as dependencias na raiz:
 
@@ -85,7 +107,7 @@ Depois de clonar ou baixar o projeto, instale as dependencias na raiz:
 npm install
 ```
 
-### Variavel opcional da API Gemini
+### 🤖 Ativando os recursos de IA (opcional)
 
 Para habilitar os insights e o chat financeiro, crie um arquivo `.env.local` na raiz do projeto:
 
@@ -93,9 +115,9 @@ Para habilitar os insights e o chat financeiro, crie um arquivo `.env.local` na 
 VITE_GEMINI_API_KEY=sua_chave_da_api_gemini
 ```
 
-Sem essa chave, as telas de simulacao, calculo, historico e resultado continuam disponiveis, mas os recursos de IA nao funcionarao.
+Sem essa chave, as telas de simulacao, calculo, historico e resultado continuam disponiveis, mas os recursos de IA nao funcionarao. A chave deve permanecer apenas no arquivo local e nunca ser publicada no repositorio.
 
-### Rodar em desenvolvimento
+### ▶️ Rodar em desenvolvimento
 
 ```bash
 npm run dev
@@ -103,7 +125,7 @@ npm run dev
 
 Abra no navegador o endereco exibido pelo Vite, normalmente `http://localhost:5173`.
 
-## Scripts Disponiveis
+## 🧰 Scripts Disponiveis
 
 | Comando            | Finalidade                                                       |
 | ------------------ | ---------------------------------------------------------------- |

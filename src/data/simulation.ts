@@ -1,4 +1,4 @@
-import { CalendarClock, CreditCard, Goal, Landmark, PiggyBank, Wallet } from 'lucide-react';
+import { Anchor, Coins, Compass, Gem, Map, ScrollText } from 'lucide-react';
 
 import type { InsightData } from '@/services/aiServices';
 import type { FormStepProps } from '../components/features/Simulation/FormStep';
@@ -6,9 +6,9 @@ import type { FormStepProps } from '../components/features/Simulation/FormStep';
 export const simulationFormSteps = [
 	{
 		id: 'income',
-		icon: PiggyBank,
-		title: 'Renda mensal bruta',
-		question: 'Quanto é depositado na sua conta todo mês (somando todas as fontes)?',
+		icon: Coins,
+		title: 'Berries da tripulação',
+		question: 'Quanto entra no seu navio todo mês, somando todas as fontes?',
 		inputProps: {
 			placeholder: 'ex: 5.000,00',
 			prefix: 'R$',
@@ -17,9 +17,9 @@ export const simulationFormSteps = [
 	},
 	{
 		id: 'expenses',
-		icon: CreditCard,
-		title: 'Custos fixos de vida',
-		question: 'Quanto você gasta mensalmente com custos fixos (aluguel, contas, etc)?',
+		icon: Anchor,
+		title: 'Custos para manter o navio',
+		question: 'Quanto sua tripulação gasta por mês com custos essenciais?',
 		inputProps: {
 			placeholder: 'ex: 2.000,00',
 			prefix: 'R$',
@@ -28,9 +28,9 @@ export const simulationFormSteps = [
 	},
 	{
 		id: 'debts',
-		icon: Landmark,
-		title: 'Dívidas / parcelas',
-		question: 'Você tem algum valor comprometido com parcelas ou empréstimos mensalmente?',
+		icon: ScrollText,
+		title: 'Promessas e parcelas',
+		question: 'Quanto dos seus berries já está comprometido com dívidas ou parcelas?',
 		inputProps: {
 			placeholder: 'ex: 500,00',
 			prefix: 'R$',
@@ -39,19 +39,19 @@ export const simulationFormSteps = [
 	},
 	{
 		id: 'goalName',
-		icon: Goal,
-		title: 'Nome da meta',
-		question: 'Qual o objetivo que você deseja alcançar?',
+		icon: Compass,
+		title: 'Nome do seu tesouro',
+		question: 'Qual tesouro você quer encontrar no fim dessa jornada?',
 		inputProps: {
-			placeholder: 'ex: Viagem para o Japão',
+			placeholder: 'ex: Navio novo para a tripulação',
 			maxLength: 50,
 		},
 	},
 	{
 		id: 'goalAmount',
-		icon: Wallet,
-		title: 'Custo da meta',
-		question: 'Quanto custa realizar esse sonho?',
+		icon: Gem,
+		title: 'Valor do tesouro',
+		question: 'Quantos berries são necessários para realizar esse sonho?',
 		inputProps: {
 			placeholder: 'ex: 15.000,00',
 			prefix: 'R$',
@@ -60,9 +60,9 @@ export const simulationFormSteps = [
 	},
 	{
 		id: 'goalDeadline',
-		icon: CalendarClock,
-		title: 'Prazo desejado',
-		question: 'Em quantos meses você planeja atingir esse objetivo?',
+		icon: Map,
+		title: 'Rota até o destino',
+		question: 'Em quantos meses você quer chegar ao seu tesouro?',
 		inputProps: {
 			type: 'number',
 			placeholder: 'ex: 12',
@@ -71,8 +71,8 @@ export const simulationFormSteps = [
 			max: 120,
 		},
 		submitButtonProps: {
-			label: 'Gerar simulação',
-			emojiIcon: '✨',
+			label: 'Traçar minha rota',
+			emojiIcon: '⚓',
 		},
 	},
 ] satisfies FormStepProps[];

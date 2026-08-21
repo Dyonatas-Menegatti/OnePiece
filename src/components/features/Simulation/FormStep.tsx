@@ -2,8 +2,8 @@ import { ArrowLeft, ArrowRight, type LucideIcon } from 'lucide-react';
 
 import { Button } from '@/components/shared/Button';
 import { Input, type InputProps } from '@/components/shared/Input';
-import { useState, type SyntheticEvent } from 'react';
 import { formatCurrencyMask } from '@/utils/currency';
+import { useState, type SyntheticEvent } from 'react';
 
 export interface FormStepProps {
 	id: string;
@@ -73,7 +73,7 @@ export function FormStep({
 							className="order-2 flex-1 justify-center rounded-xl py-3 sm:order-1"
 						>
 							<ArrowLeft size={16} />
-							Voltar
+							Voltar ao convés
 						</Button>
 					)}
 					<Button
@@ -82,7 +82,7 @@ export function FormStep({
 						disabled={!inputValue}
 						className="order-1 flex-1 sm:order-2"
 					>
-						{submitButtonProps?.label ?? 'Próximo'}
+						{submitButtonProps?.label ?? 'Avançar na rota'}
 						{submitButtonProps?.emojiIcon ?? <ArrowRight size={16} />}
 					</Button>
 				</div>

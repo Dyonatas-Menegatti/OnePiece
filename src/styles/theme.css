@@ -2,33 +2,33 @@
 
   :root,
   [data-theme='light'] {
-    --background: #f8fafc;
-    --foreground: #0f1729;
-    --primary: #925cf0;
-    --primary-foreground: #f8fafc;
-    --card: #fcfcfe;
-    --border: rgba(9, 9, 11, 0.08);
-    --muted-primary: rgba(146, 92, 240, 0.5);
-    --muted-foreground: #64749a;
-    --secondary-button: #f1f5f9;
-    --input: #fcfcfe;
-    --skeleton-base-color: #e1e1f1;
-    --skeleton-highlight-color: #c5c5df;
+    --background: #f4efe3;
+    --foreground: #172b4d;
+    --primary: #c92f35;
+    --primary-foreground: #fffaf0;
+    --card: #fffaf0;
+    --border: rgba(23, 43, 77, 0.14);
+    --muted-primary: rgba(201, 47, 53, 0.16);
+    --muted-foreground: #5d6a7d;
+    --secondary-button: #e7edf2;
+    --input: #fffdf7;
+    --skeleton-base-color: #ded7c8;
+    --skeleton-highlight-color: #f1eadc;
   }
 
   [data-theme='dark'] {
-    --background: #0f0d16;
-    --foreground: #fcfcfe;
-    --primary: #925cf0;
-    --primary-foreground: #fcfcfc;
-    --card: #181622;
-    --border: rgba(248, 250, 252, 0.4);
-    --muted-primary: rgba(146, 92, 240, 0.2);
-    --muted-foreground: #ad9fc8;
-    --secondary-button: #27272a;
-    --input: #232131;
-    --skeleton-base-color: #3e3e42;
-    --skeleton-highlight-color: #434052;
+    --background: #0d1b2a;
+    --foreground: #fff8e8;
+    --primary: #e0433f;
+    --primary-foreground: #fff8e8;
+    --card: #152b42;
+    --border: rgba(255, 248, 232, 0.18);
+    --muted-primary: rgba(224, 67, 63, 0.2);
+    --muted-foreground: #b8c5d1;
+    --secondary-button: #203b55;
+    --input: #10253a;
+    --skeleton-base-color: #29445b;
+    --skeleton-highlight-color: #3a5870;
   }
 }
 
@@ -43,7 +43,9 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-secondary-button: var(--secondary-button);
   --color-input: var(--input);
-  --color-red-500: #ef4444;
+  --color-red-500: #e0433f;
+  --color-treasure: #d99b2b;
+  --color-ocean: #1f6f8b;
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --color-skeleton-base: var(--skeleton-base-color);
   --color-skeleton-highlight: var(--skeleton-highlight-color);

@@ -30,18 +30,18 @@ export function buildAIPrompt(simulation: SimulationRecord) {
 	const monthlySavings = calcMonthlySavings(simulation);
 	const monthlySavingsNeeded = parseCurrency(goalAmount) / parseInt(goalDeadline);
 
-	return `Você é um educador financeiro especializado em finanças pessoais. Analise os dados abaixo e gere um diagnóstico financeiro personalizado com linguagem clara, didática e encorajadora, voltado para pessoas sem conhecimento financeiro. O diagnóstico será exibido diretamente ao usuário no app, fale sempre em segunda pessoa ("você tem...", "sua meta...").
+	return `Você é o navegador financeiro de uma tripulação brasileira. Analise os dados abaixo e gere um diagnóstico personalizado com linguagem clara, didática e encorajadora. Use referências leves a rotas, viagem, tripulação e tesouro, sem exagerar e sem sacrificar a precisão financeira. O diagnóstico será exibido diretamente ao usuário no app, fale sempre em segunda pessoa ("você tem...", "seu tesouro...").
 
 Dados da simulação:
-- Renda mensal bruta: ${income}
-- Custos fixos essenciais: ${expenses}
-- Dívidas e parcelas mensais: ${debts}
-- Valor disponível por mês: ${monthlySavings} reais
-- Meta: ${goalName}
-- Custo da meta: ${goalAmount}
-- Prazo desejado: ${goalDeadline} meses
-- Economia mensal necessária para atingir a meta no prazo: ${monthlySavingsNeeded} reais
-- Saldo após reserva para a meta: ${monthlySavings - monthlySavingsNeeded} reais
+- Berries que entram por mês: ${income}
+- Custos essenciais do navio: ${expenses}
+- Promessas e parcelas mensais: ${debts}
+- Berries disponíveis por mês: ${monthlySavings} reais
+- Tesouro: ${goalName}
+- Valor do tesouro: ${goalAmount}
+- Tempo de rota: ${goalDeadline} meses
+- Berries necessários por mês para chegar ao tesouro: ${monthlySavingsNeeded} reais
+- Saldo após reservar para o tesouro: ${monthlySavings - monthlySavingsNeeded} reais
 
 Retorne APENAS um JSON válido, sem texto adicional, sem blocos de código, neste formato exato:
 
@@ -68,7 +68,7 @@ export function buildQuestionPrompt(
 		.map((message) => `${message.role === 'user' ? 'Usuário' : 'Educador'}: ${message.content}`)
 		.join('\n');
 
-	return `Você é um educador financeiro brasileiro, claro, didático e responsável. Responda à pergunta do usuário usando os dados da simulação abaixo. Seja objetivo, prático e não invente dados. Não use markdown, listas com símbolos ou JSON. Responda em português do Brasil.
+	return `Você é o navegador financeiro de uma tripulação brasileira. Responda à pergunta usando os dados da rota abaixo. Seja objetivo, prático e responsável, usando referências leves a viagem, tripulação e tesouro. Não invente dados, não use markdown, listas com símbolos ou JSON. Responda em português do Brasil.
 
 Dados da simulação:
 - Renda mensal: ${simulation.income}

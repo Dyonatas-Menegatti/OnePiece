@@ -1,5 +1,5 @@
 import { useInsight } from '@/hooks/useInsight';
-import { ArrowUp, MessageCircle } from 'lucide-react';
+import { Anchor, ArrowUp, MessageCircle } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -38,9 +38,9 @@ export function AIInsightsCard({ simulationId }: AIInsightCardProps) {
 	return (
 		<div className="bg-card order-2 rounded-2xl p-6 shadow-[4px_4px_18px_0px_rgba(0,0,0,0.2)] lg:order-1 lg:col-span-2">
 			<div className="mb-3 flex items-center gap-1.5">
-				<span>✨</span>
+				<Anchor size={16} className="text-primary" />
 				<span className="text-primary text-xs font-semibold uppercase tracking-widest">
-					Insight Financeiro Personalizado
+					Conselho do navegador financeiro
 				</span>
 			</div>
 
@@ -70,7 +70,7 @@ export function AIInsightsCard({ simulationId }: AIInsightCardProps) {
 					<div className="mb-3 flex items-center gap-2">
 						<MessageCircle size={18} className="text-primary" />
 						<h2 className="text-foreground text-sm font-semibold">
-							Conversando com o Educador Financeiro
+							No convés com o navegador financeiro
 						</h2>
 					</div>
 					<div className="max-h-72 space-y-3 overflow-y-auto pr-1">
@@ -88,7 +88,7 @@ export function AIInsightsCard({ simulationId }: AIInsightCardProps) {
 						))}
 						{isAsking && (
 							<p className="text-muted-foreground text-sm">
-								O educador está preparando uma resposta...
+								O navegador está consultando o Log Pose...
 							</p>
 						)}
 						<div ref={conversationEndRef} />
@@ -98,7 +98,7 @@ export function AIInsightsCard({ simulationId }: AIInsightCardProps) {
 						<input
 							value={question}
 							onChange={(event) => setQuestion(event.target.value)}
-							placeholder="Pergunte sobre sua simulação..."
+							placeholder="Pergunte sobre sua rota..."
 							disabled={isAsking}
 							className="border-border bg-input text-foreground focus:border-primary min-w-0 flex-1 rounded-xl border px-3 py-3 text-sm outline-none"
 						/>

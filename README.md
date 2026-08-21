@@ -1,75 +1,115 @@
-# React + TypeScript + Vite
+# Grand Line Finance
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicacao web para planejamento financeiro pessoal. O Grand Line Finance transforma uma meta em uma rota de economia: a pessoa informa sua renda, despesas, dividas, objetivo e prazo para visualizar quanto precisa reservar por mes.
 
-Currently, two official plugins are available:
+## Indice
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- [Status](#status)
+- [Funcionalidades](#funcionalidades)
+- [Demonstracao Visual](#demonstracao-visual)
+- [Acesso ao Projeto](#acesso-ao-projeto)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Como Executar](#como-executar)
+- [Scripts Disponiveis](#scripts-disponiveis)
 
-## React Compiler
+## Status
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Concluido para demonstracao e testes locais. A aplicacao ja possui fluxo de simulacao, armazenamento no navegador, historico e resultados com insights financeiros por IA.
 
-## Expanding the ESLint configuration
+## Funcionalidades
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Formulario guiado em seis etapas para registrar uma simulacao.
+- Calculo da reserva mensal necessaria para atingir o objetivo.
+- Tela de resultados com resumo da meta, prazo, renda, custos e parcelas.
+- Insights e perguntas ao navegador financeiro por meio da API Gemini.
+- Historico de simulacoes salvo no `localStorage`, com consulta e exclusao.
+- Navegacao entre nova simulacao, resultado e diario de bordo.
+- Alternancia entre tema claro e escuro.
+- Layout responsivo para desktop e dispositivos moveis.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Demonstracao Visual
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Tela inicial
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+![Tela inicial do Grand Line Finance](public/screenshots/tela-inicial.png)
 
+### Historico de simulacoes
+
+![Historico de simulacoes](public/screenshots/historico-vazio.png)
+
+### Resultado de uma simulacao
+
+![Resultado de uma simulacao](public/screenshots/resultado-simulacao.png)
+
+## Acesso ao Projeto
+
+- **Repositorio:** [github.com/Dyonatas-Menegatti/OnePiece](https://github.com/Dyonatas-Menegatti/OnePiece)
+- **Download:** [baixar o projeto pelo GitHub](https://github.com/Dyonatas-Menegatti/OnePiece/archive/refs/heads/main.zip)
+
+Para baixar via Git:
+
+```bash
+git clone https://github.com/Dyonatas-Menegatti/OnePiece.git
+cd OnePiece
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Tecnologias Utilizadas
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Tecnologia ou biblioteca | Versao declarada |
+| ------------------------ | ---------------- |
+| React                    | `^19.2.8`        |
+| React DOM                | `^19.2.8`        |
+| TypeScript               | `~6.0.2`         |
+| Vite                     | `^8.2.0`         |
+| Tailwind CSS             | `^4.3.3`         |
+| React Router DOM         | `^7.18.2`        |
+| Lucide React             | `^1.31.0`        |
+| React Loading Skeleton   | `^3.5.0`         |
+| ESLint                   | `^9.7.0`         |
+| Prettier                 | `^3.0.0`         |
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+As demais versoes de desenvolvimento estao disponiveis no arquivo [package.json](package.json).
 
+## Como Executar
+
+### Pre-requisitos
+
+- Node.js 20 ou superior.
+- npm 10 ou superior.
+
+### Instalacao
+
+Depois de clonar ou baixar o projeto, instale as dependencias na raiz:
+
+```bash
+npm install
 ```
+
+### Variavel opcional da API Gemini
+
+Para habilitar os insights e o chat financeiro, crie um arquivo `.env.local` na raiz do projeto:
+
+```env
+VITE_GEMINI_API_KEY=sua_chave_da_api_gemini
+```
+
+Sem essa chave, as telas de simulacao, calculo, historico e resultado continuam disponiveis, mas os recursos de IA nao funcionarao.
+
+### Rodar em desenvolvimento
+
+```bash
+npm run dev
+```
+
+Abra no navegador o endereco exibido pelo Vite, normalmente `http://localhost:5173`.
+
+## Scripts Disponiveis
+
+| Comando            | Finalidade                                                       |
+| ------------------ | ---------------------------------------------------------------- |
+| `npm run dev`      | Inicia o servidor de desenvolvimento com atualizacao automatica. |
+| `npm run build`    | Executa a verificacao TypeScript e gera a versao de producao.    |
+| `npm run preview`  | Serve localmente o build de producao.                            |
+| `npm run lint`     | Verifica problemas de lint no projeto.                           |
+| `npm run lint:fix` | Corrige automaticamente problemas de lint aplicaveis.            |
+| `npm run format`   | Formata os arquivos com Prettier.                                |
